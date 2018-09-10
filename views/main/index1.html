@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block leader %}
+<link rel="stylesheet" type="text/css" href="/publick/css/index.css"/>
+<script src="/publick/js/index.js"></script>
+{% endblock %}
+{% block content %}
+<section class="login">
+    <div class="login-phone">
+        <div class="login-phone1">密码登录</div>
+        <div class="login-phone2">快速登录</div>
+    </div>
+    <!--密码登录-->
+    <form method="post" action="/">
+    <div class="login-pass">
+        <div class="login-num">
+            <span>&#xe70b;</span>
+            <input type="text" class="login-num-btn" placeholder="ID" name="userNum"/>
+        </div>
+        <div class="login-passWd">
+            <span>&#xe82b;</span>
+            <input type="password" class="login-passWd-btn" placeholder="Password" name="userPass"/>
+        </div>
+        <button class="login-1">登录</button>
+        <!--<span class="login-forget"><a href="/forget">忘记密码?</a></span>
+        <span class="sign"><a href="/sign">立即注册?</a></span>-->
+        <div class="login-fot">
+            <span class="login-forget"><a href="/forget">忘记密码?</a></span>
+            <span class="sign"><a href="/sign">立即注册?</a></span>
+        </div>
+    </div>
+    </form>
+    <!--快速登录-->
+    <div class="login-phone-pass hide">
+        <div class="login-phone-pass-p">
+            <span>&#x3448;</span>
+            <input type="text" placeholder="Phone" class="set-phone"/>
+        </div>
+        <input type="text" placeholder="Identify code" class="login-phone-pass-ma"/>
+        <input type="button" value="获取验证码" class="login-phone-pass-ma1"/>
+        <button class="oBtn">登录</button>
+    </div>
+</section>
+{% endblock %}

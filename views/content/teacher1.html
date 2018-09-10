@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>老师</title>
+<link rel="stylesheet" type="text/css" href="/publick/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/publick/css/bootstrap-theme.min.css"/>
+<script src="/publick/js/jquery-3.2.1.min.js"></script>
+<script src="/publick/js/bootstrap.min.js"></script>
+<script src="/publick/js/choose.js"></script>
+{% endblock %}
+
+{% block list %}
+
+<nav class="navbar navbar-default">
+    <p class="navbar-text" style="margin-left: 50px;">个人中心管理</p>
+    <ul class="nav navbar-nav" style="margin-left: 100px;">
+        <li class="dropdown">
+            <a href="/teacher">个人资料</a>
+        </li>
+        <li class="dropdown" style="background: rgba(128,128,128,.35)">
+            <a href="#">我的课程</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 60px;">
+        <li><a href="/teacher/out">退出</a></li>
+    </ul>
+    <form class="navbar-form navbar-right" role="search" style="margin-right: 200px;">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" style="width: 350px;">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</nav>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid breadcrumb" style="width: 98%;">
+    <h3>选课信息</h3>
+    <table class="table table-bordered" style="table-layout: fixed;">
+        <tbody>
+        <tr>
+            <td>课程号</td>
+            <td>课程名称</td>
+            <td>选课学号</td>
+            <td>选课学生</td>
+            <td>成绩</td>
+            <td>修改成绩</td>
+        </tr>
+        {% for scoreData in data %}
+        <tr>
+            <td class="one">{{scoreData.classId}}</td>
+            <td>{{scoreData.className}}</td>
+            <td class="tow">{{scoreData.studentNum}}</td>
+            <td>{{scoreData.studentName}}</td>
+            <td><input style="border:0;outline: 0;padding:0;background: #f5f5f5;" class="btn1" type="text" value="{{scoreData.score}}" readonly="true"></td>
+            <td class="btn2" style="color:blue;cursor: pointer">修改成绩</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<nav aria-label="Page navigation" style="text-align: center;">
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<script>
+    window.onload=function () {
+        var btn1=document.querySelectorAll(".btn1");
+        var btn2=document.querySelectorAll(".btn2");
+        var one=document.querySelectorAll(".one");
+        var tow=document.querySelectorAll(".tow");
+        for(var i=0;i<btn2.length;i++){
+            btn2[i].index=i;
+            btn2[i].onclick=function (){
+
+                if(btn1[this.index].readOnly==true){
+                    btn1[this.index].readOnly=false;
+                    btn1[this.index].style.background="#fff";
+                    this.innerText="确认";
+                }else{
+                    /*console.log(this.index);*/
+                    ajax("post","/teacher/mark",`studentNum=${tow[this.index].innerText}&scoreId=${one[this.index].innerText}&reviseScore=${btn1[this.index].value}`,function (data) {
+                        var d=JSON.parse(data);
+                        if(d.code=="0"){
+                            alert(d.message)
+                            window.location.reload();
+                        }else{
+                            alert(d.message);
+                        }
+                    });
+                }
+
+            }
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,254 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>管理员</title>
+<link rel="stylesheet" type="text/css" href="/publick/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/publick/css/bootstrap-theme.min.css"/>
+<script src="/publick/js/jquery-3.2.1.min.js"></script>
+<script src="/publick/js/bootstrap.min.js"></script>
+<script src="/publick/js/choose.js"></script>
+{% endblock %}
+
+{% block list %}
+<nav class="navbar navbar-default">
+    <p class="navbar-text" style="margin-left: 50px;">个人中心管理</p>
+    <ul class="nav navbar-nav" style="margin-left: 100px;">
+        <li class="dropdown" style="background: rgba(128,128,128,.35)">
+            <a href="#">学生管理</a>
+        </li>
+        <li class="dropdown">
+            <a href="#">老师管理</a>
+        </li>
+        <li class="dropdown">
+            <a href="#">开设选课</a>
+        </li>
+        <li class="dropdown">
+            <a href="#">选课管理</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 60px;">
+        <li><a href="/admin/out">退出</a></li>
+    </ul>
+    <form class="navbar-form navbar-right" role="search" style="margin-right: 200px;">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" style="width: 350px;">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</nav>
+{% endblock %}
+{% block content %}
+<div class="container-fluid breadcrumb" style="width: 98%;">
+    <h3>学生用户</h3>
+    <table class="table table-bordered" style="table-layout: fixed;">
+        <tbody>
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>登录密码</td>
+            <td>手机</td>
+            <td>操作</td>
+        </tr>
+        {% for student in userData.userData.student %}
+        <tr>
+            <td class="stu1">{{student.userNum}}</td>
+            <td>{{student.userName}}</td>
+            <td>{{student.passWd}}</td>
+            <td>{{student.userPhone}}</td>
+            <td class="stu2" style="cursor: pointer;color: blue">删除</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" style="text-align: center;">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="container-fluid breadcrumb" style="width: 98%;display: none;">
+    <h3>老师管理</h3>
+    <table class="table table-bordered" style="table-layout: fixed;">
+        <tbody>
+        <tr>
+            <td>工号</td>
+            <td>姓名</td>
+            <td>登录密码</td>
+            <td>手机</td>
+            <td>操作</td>
+        </tr>
+        {% for teacher in userData.userData.teacher %}
+        <tr>
+            <td class="tea1">{{teacher.userNum}}</td>
+            <td>{{teacher.userName}}</td>
+            <td>{{teacher.passWd}}</td>
+            <td>{{teacher.userPhone}}</td>
+            <td class="tea2" style="cursor: pointer;color: blue">删除</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" style="text-align: center;">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="container-fluid breadcrumb" style="width: 98%;display: none;">
+    <h3>开设选课</h3>
+    <form method="post" action="/admin/add">
+        <div class="form-group">
+            <label for="exampleInputEmail1">课程编号</label>
+            <input type="text" name="classNum" class="form-control" id="exampleInputEmail1" placeholder="课程编号" style="width: 400px">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">课程名称</label>
+            <input type="text" name="className" class="form-control" id="exampleInputPassword1" placeholder="课程名称" style="width: 400px">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">老师编号</label>
+            <input type="text" name="teacherNum" class="form-control" id="exampleInputPassword2" placeholder="老师编号" style="width: 400px">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">老师姓名</label>
+            <input type="text" name="teacherName" class="form-control" id="exampleInputPassword3" placeholder="老师姓名" style="width: 400px">
+        </div>
+        <button type="submit" class="btn btn-default">确认</button>
+    </form>
+</div>
+<div class="container-fluid breadcrumb" style="width: 98%;display: none;">
+    <h3>选课管理</h3>
+    <table class="table table-bordered" style="table-layout: fixed;">
+        <tbody>
+        <tr>
+            <td>选课号</td>
+            <td>课程名称</td>
+            <td>工号</td>
+            <td>授课老师</td>
+            <td>操作</td>
+            <td>解除课程</td>
+        </tr>
+        {% for classData in userData.classData %}
+        <tr>
+            <td class="cls1">{{classData.classId}}</td>
+            <td>{{classData.className}}</td>
+            <td class="cls2">{{classData.teacherNum}}</td>
+            <td>{{classData.teacherName}}</td>
+            <td><a href="/admin/check?classId={{classData.classId}}">查看</a></td>
+            <td class="cls3" style="color: blue;cursor: pointer;">解除</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" style="text-align: center;">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<script>
+    window.onload=function () {
+        for(var i=0;i<M(".dropdown").length;i++){
+            M(".dropdown")[i].index=i;
+            M(".dropdown")[i].onclick=function(){
+
+                for(var i=0;i<M(".dropdown").length;i++){
+                    M(".dropdown")[i].style.background="";
+                    M(".container-fluid")[i].style.display="none";
+                    M(".container-fluid")[this.index].style.display="block";
+                    this.style.background="rgba(128,128,128,.35)";
+                }
+            }
+        }
+        //删除学生
+        var stu1=document.querySelectorAll(".stu1");
+        var stu2=document.querySelectorAll(".stu2");
+        for(var i=0;i<stu2.length;i++){
+            stu2[i].index=i;
+            stu2[i].onclick=function () {
+                ajax("post","admin/stu/delete",`userNum=${stu1[this.index].innerHTML}`,function (data) {
+                    var d=JSON.parse(data);
+                    if(d.code=="0"){
+                        alert(d.message);
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+        //删除老师
+        var tea1=document.querySelectorAll(".tea1");
+        var tea2=document.querySelectorAll(".tea2");
+
+        for(var i=0;i<tea2.length;i++){
+            tea2[i].index=i;
+            tea2[i].onclick=function () {
+                ajax("post","admin/stu/delete",`userNum=${tea1[this.index].innerHTML}`,function (data) {
+                    var d=JSON.parse(data);
+                    if(d.code=="0"){
+                        alert(d.message);
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+        //删除课程
+        var cls1=document.querySelectorAll(".cls1");
+        var cls2=document.querySelectorAll(".cls2");
+        var cls3=document.querySelectorAll(".cls3");
+        for(var i=0;i<cls3.length;i++){
+            cls3[i].index=i;
+            cls3[i].onclick=function () {
+                ajax("post","admin/cls/delete",`classId=${cls1[this.index].innerHTML}&teacherNum=${cls2[this.index].innerHTML}`,function (data) {
+                    var d=JSON.parse(data);
+                    if(d.code=="0"){
+                        alert(d.message);
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+    }
+</script>
+{% endblock %}

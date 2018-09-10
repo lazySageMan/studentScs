@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>老师</title>
+<link rel="stylesheet" type="text/css" href="/publick/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/publick/css/bootstrap-theme.min.css"/>
+<script src="/publick/js/jquery-3.2.1.min.js"></script>
+<script src="/publick/js/bootstrap.min.js"></script>
+<script src="/publick/js/choose.js"></script>
+{% endblock %}
+
+{% block list %}
+
+<nav class="navbar navbar-default">
+    <p class="navbar-text" style="margin-left: 50px;">个人中心管理</p>
+    <ul class="nav navbar-nav" style="margin-left: 100px;">
+        <li class="dropdown" style="background: rgba(128,128,128,.35)">
+            <a href="#">个人资料</a>
+        </li>
+        <li class="dropdown">
+            <a href="#">我的课程</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 60px;">
+        <li><a href="/teacher/out">退出</a></li>
+    </ul>
+    <form class="navbar-form navbar-right" role="search" style="margin-right: 200px;">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" style="width: 350px;">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid breadcrumb" style="width: 98%;">
+    <h3>个人信息</h3>
+    <table class="table table-bordered" style="table-layout: fixed;">
+        <tbody>
+        <tr>
+            <td>工号</td>
+            <td>姓名</td>
+            <td>手机</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td>{{userData.userData.userNum}}</td>
+            <td>{{userData.userData.userName}}</td>
+            <td><input style="border:0;outline: 0;padding:0;background: #f5f5f5;" class="btn1" type="text" value="{{userData.userData.userPhone}}" readonly="true"></td>
+            <td class="btn1" style="color: blue;cursor: pointer">修改</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<div class="container-fluid breadcrumb" style="width: 98%;display: none;">
+    <h3>我的课程</h3>
+    <table class="table table-bordered" style="table-layout: fixed;">
+        <tbody>
+        <tr>
+            <td>课程号</td>
+            <td>课程名称</td>
+            <td>操作</td>
+        </tr>
+        {% for classData in userData.classData %}
+        <tr>
+            <td>{{classData.classId}}</td>
+            <td>{{classData.className}}</td>
+            <td><a href="/teacher/check?classId={{classData.classId}}">查看</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" style="text-align: center;">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<script>
+    window.onload=function () {
+        for(var i=0;i<M(".dropdown").length;i++){
+            M(".dropdown")[i].index=i;
+            M(".dropdown")[i].onclick=function(){
+
+                for(var i=0;i<M(".dropdown").length;i++){
+                    M(".dropdown")[i].style.background="";
+                    M(".container-fluid")[i].style.display="none";
+                    M(".container-fluid")[this.index].style.display="block";
+                    this.style.background="rgba(128,128,128,.35)";
+                }
+            }
+        }
+        var form=document.querySelectorAll(".btn1");
+        form[1].onclick=function () {
+            if(form[0].readOnly==true){
+                form[0].readOnly=false;
+                form[0].style.background="#fff";
+                this.innerText="确认";
+
+            }else{
+                ajax("post","/teacher/revise",`userNum={{userData.userData.userNum}}&revisePhone=${form[0].value}`,function (data) {
+                    var d=JSON.parse(data);
+                    if(d.code=="0"){
+                        alert(d.message);
+                        window.location.reload();
+                    }else{
+                        alert(d.message);
+                    }
+                });
+            }
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="/publick/css/sign.css"/>
+    <script src="/publick/js/sign.js"></script>
+</head>
+<body>
+    <section class="sign">
+        <div class="sign-title">
+            <h1>欢迎注册！</h1>
+            <p>欢迎大家注册，但是也提醒大家，需要对应身份注册，不要搞错了哦！！</p>
+        </div>
+        <div class="sign-btn">
+            <div class="sign-name">
+                <input type="text" placeholder="Name" class="btn-1"/>
+            </div>
+            <div class="sign-pass">
+                <input type="password" placeholder="Password" class="btn-2"/>
+            </div>
+            <div class="sign-phone">
+                <input type="text" placeholder="Phone" class="btn-3"/>
+            </div>
+            <div class="sign-type">
+                <!--<select autocomplete="off" class="btn-4">
+                    <option>学生注册</option>
+                    <option>教师注册</option>
+                </select>-->
+                <!--<span>学生: <input type="radio" name="0" checked="checked" value="student" class="userTy"/></span>
+                <span>老师: <input type="radio" name="0" value="teacher" class="userTy"/></span>-->
+                <label class="sign-label1"><span class="sign-type-span-1">学生：</span><input class="userTy" type="radio" name="1" value="0" checked="checked"/></label>
+                <label class="sign-label2"><span class="sign-type-span-2">老师：</span><input class="userTy" type="radio" name="1" value="1"/></label>
+            </div>
+
+            <button>注册</button>
+        </div>
+    </section>
+</body>
+</html>

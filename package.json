@@ -1,0 +1,20 @@
+{
+  "name": "student",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@alicloud/sms-sdk": "^1.1.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cookies": "^0.7.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.17",
+    "swig": "^1.4.2"
+  }
+}

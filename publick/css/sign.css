@@ -1,0 +1,263 @@
+*{
+    margin:0;
+    padding:0;
+}
+@media screen and (min-width:640px) {
+    body{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        background: url("/publick/img/bg3.jpg");
+        background-size: cover;
+        box-sizing:border-box;
+    }
+    body:after{
+        width: 100%;
+        height:100%;
+        content: "";
+        position: absolute;
+        left:0;
+        top:0;
+        background: inherit;
+        filter: blur(10px);
+        z-index: 50;
+    }
+    .sign{
+        width: 50%;
+        position: absolute;
+        z-index: 100;
+        background:rgba(255,255,255,0.7);
+        display: flex;
+        flex-flow: column;
+        align-items:center;
+        margin-top:10%;
+        border-radius:10px;
+    }
+    .sign h1{
+        text-align: center;
+        padding: 30px 0;
+    }
+    .sign p{
+        color: #ff4a54;
+    }
+    .sign-btn{
+        width: 60%;
+        display: flex;
+        flex-flow: column nowrap;
+        margin-top:3% ;
+    }
+    .sign-btn div{
+        width: 75%;
+        height:40px;
+        border-radius: 5px;
+        background: #FFFFFF;
+        margin:0 auto 6%;
+    }
+    .sign-btn div input{
+        width: 90%;
+        border: 0;
+        height: 98%;
+        outline: 0;
+        font-size: 15px;
+        margin-left: 3%;
+        line-height: 100%;
+        letter-spacing: 2px;
+        text-indent: 0.2em;
+        cursor: pointer;
+    }
+    .sign-btn .sign-type{
+        position: relative;
+    }
+    .sign-btn .sign-type span{
+        position: absolute;
+        left: 1em;
+        top:.5em;
+        opacity: .5;
+    }
+    .sign-btn .sign-type label{
+        width: 30%;
+        height:40px;
+    }
+    .sign-btn .sign-label1{
+        position: absolute;
+        left: 2em;
+        top:.5em;
+    }
+    .sign-btn .sign-label1 .sign-type-span-1{
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    .sign-btn .sign-label1 input{
+        position: absolute;
+        left: 50px;
+        top:-5px;
+        width: 20px;
+    }
+    .sign-btn .sign-label2{
+        position: absolute;
+        left: 10em;
+        top:.5em;
+    }
+    .sign-btn .sign-label2 .sign-type-span-2{
+        position: absolute;
+        left: 0;
+        top:0;
+    }
+    .sign-btn .sign-label2 input{
+        position: absolute;
+        left: 50px;
+        top:-5px;
+        width: 20px;
+    }
+    /*.sign-btn .sign-type select{
+        position: absolute;
+        left: 150px;
+        top:.6em;
+        -webkit-appearance: none;
+        width: 150px;
+        height:60%;
+        text-indent: 40px;
+        cursor: pointer;
+    }
+    .sign-btn .sign-type select option{
+        width: 100%;
+        text-indent: 40px;
+        cursor: pointer;
+    }*/
+    .sign-btn button{
+        width: 30%;
+        height:35px;
+        margin-bottom: 50px;
+        align-self:center;
+        background: #71c0ff;
+        border:0;
+        outline: 0;
+        color:#FFFFFF;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .sign-btn button:hover{
+        background:#ff6b68 ;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 640px){
+    body{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        background: url("/publick/img/bg3.jpg");
+        background-size: cover;
+        box-sizing:border-box;
+    }
+    body:after{
+        width: 100%;
+        height:100%;
+        content: "";
+        position: absolute;
+        left:0;
+        top:0;
+        background: inherit;
+        filter: blur(10px);
+        z-index: 50;
+    }
+    .sign{
+        width: 90%;
+        position: absolute;
+        z-index: 100;
+        background:rgba(255,255,255,0.7);
+        display: flex;
+        flex-flow: column;
+        align-items:center;
+        margin-top:30%;
+        border-radius:10px;
+    }
+    .sign h1{
+        text-align: center;
+        padding: 15px 0;
+    }
+    .sign p{
+        padding: 0 5px;
+        text-align: center;
+        color: #ff4a54;
+    }
+    .sign-btn{
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        margin-top:3% ;
+    }
+    .sign-btn div{
+        width: 95%;
+        height:40px;
+        background: #FFFFFF;
+        margin:0 auto 6%;
+        border-radius: 3px;
+    }
+    .sign-btn div input{
+        width: 90%;
+        border: 0;
+        height: 98%;
+        outline: 0;
+        margin-left: 2%;
+        font-size: 15px;
+        line-height: 100%;
+        letter-spacing: 2px;
+        text-indent: 0.3em;
+        cursor: pointer;
+    }
+    .sign-btn .sign-type{
+        position: relative;
+    }
+    .sign-btn .sign-type label{
+        width: 30%;
+        height:40px;
+    }
+    .sign-btn .sign-label1{
+        position: absolute;
+        left: 2em;
+        top:.5em;
+    }
+    .sign-btn .sign-label1 .sign-type-span-1{
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    .sign-btn .sign-label1 input{
+        position: absolute;
+        left: 50px;
+        top:-5px;
+        width: 20px;
+    }
+    .sign-btn .sign-label2{
+        position: absolute;
+        left: 10em;
+        top:.5em;
+    }
+    .sign-btn .sign-label2 .sign-type-span-2{
+        position: absolute;
+        left: 0;
+        top:0;
+    }
+    .sign-btn .sign-label2 input{
+        position: absolute;
+        left: 50px;
+        top:-5px;
+        width: 20px;
+    }
+    .sign-btn button{
+        width: 30%;
+        height:35px;
+        margin-bottom: 50px;
+        align-self:center;
+        background: #71c0ff;
+        border:0;
+        outline: 0;
+        color:#FFFFFF;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .sign-btn button:hover{
+        background:#ff6b68 ;
+    }
+}

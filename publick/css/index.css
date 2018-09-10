@@ -1,0 +1,472 @@
+*{
+    margin:0;
+    padding:0;
+}
+@font-face {
+    font-family: "gao";
+    src: url("/publick/font/iconfont.woff") format("woff");
+}
+@font-face {
+    font-family: "gao1";
+    src: url("/publick/font/iconfont1.woff") format("woff");
+}
+/*pc端下的显示*/
+@media screen and (min-width:640px) {
+    body {
+        background: url("/publick/img/bg2.png") no-repeat;
+        background-size: cover;
+        background-blend-mode: multiply;
+        z-index: 100;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: left;
+        align-items: center;
+    }
+    section{
+        flex: 0 1 auto;
+    }
+    /*左侧的图像*/
+    .images{
+        width:30rem;
+        height:30rem;
+        background:url("/publick/img/bg1.png") no-repeat;
+        background-blend-mode: multiply;
+        background-size: cover;
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+    /*顶部的*/
+    .login{
+        width: 28%;
+        height:350px;
+        margin-left: 23%;
+        margin-top: 10%;
+        background: rgba(255,255,255,0.7);
+        border-radius:10px;
+        position: relative;
+        z-index: 999;
+        display: flex;
+        flex-flow: column;
+    }
+    .login-phone{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    .login-phone div{
+        width: 50%;
+        height:40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 18px;
+        color: #FFFFFF;
+    }
+    .login-phone div:hover{
+        background:rgba(0, 0, 255, 0.6) ;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .login-phone .login-phone1{
+        border-top-left-radius: 10px;
+        background: rgba(0, 0,255, 0.6);
+    }
+    .login-phone .login-phone2{
+        border-top-right-radius: 10px;
+    }
+    /*密码登录*/
+    .login-pass{
+        margin-top:8%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    .login-pass div{
+        width: 80%;
+        height:40px;
+        margin-bottom: 5%;
+        border-radius: 8px;
+        position: relative;
+        background: #FFFFFF;
+    }
+    .login-pass div input{
+        border:none;
+        outline: none;
+        width: 90%;
+        height:95%;
+        position: absolute;
+        right: 1%;
+        top:2%;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 1px;
+        text-indent: .5em;
+    }
+    .login-pass button{
+        border:none;
+        outline: none;
+        width: 80%;
+        height:38px;
+        background: #71c0ff;
+        font-size: 18px;
+        color: #FFFFFF;
+        border-radius: 3px;
+        transition: .5s;
+    }
+    .login-pass button:hover{
+        background: #ff6b68;
+        cursor: pointer;
+    }
+    .login-pass .login-forget{
+        float: right;
+    }
+    .login-pass .sign{
+        float: left;
+    }
+    .login-pass .login-forget a{
+        text-decoration-line: none;
+    }
+    .login-pass .sign a{
+        text-decoration-line: none;
+    }
+    .login-pass .login-num span{
+        font-family: "gao";
+        font-size: 22px;
+        position: absolute;
+        top:8px;
+        left: 15px;
+        color: #00BFF0;
+    }
+    .login-pass .login-passWd span{
+        font-family: "gao";
+        font-size: 20px;
+        position: absolute;
+        top:8px;
+        left: 15px;
+        color: #00BFF0;
+    }
+    /*快速登录*/
+    .login-phone-pass{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin-top: 8%;
+    }
+    .login-phone-pass .login-phone-pass-p{
+        width: 65%;
+        height:35px;
+        margin-bottom: 4%;
+        border-radius: 5px;
+        position: relative;
+        background: #FFFFFF;
+
+    }
+    .login-phone-pass .login-phone-pass-p span{
+        position: absolute;
+        top:5px;
+        left: 3%;
+        font-family: "gao1";
+        font-size: 25px;
+        color:deepskyblue;
+
+    }
+    .login-phone-pass .login-phone-pass-p input{
+        width: 85%;
+        height:99%;
+        outline: 0;
+        border:0;
+        position: absolute;
+        top:0;
+        right: 4.5%;
+        text-indent: 0.5em;
+        font-size: 18px;
+        line-height: 35px;
+        letter-spacing: 1px;
+    }
+    .login-pass .login-fot{
+        margin-top:4%;
+        background:rgba(0,0,0,0);
+    }
+    .login-phone-pass .login-phone-pass-ma1{
+        width: 30%;
+        height:35px;
+        background: #71c0ff;
+        border:0;
+        outline: 0;
+        cursor: pointer;
+        align-self:flex-start;
+        margin-left: 17.5%;
+        color: #FFFFFF;
+        font-size: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 4%;
+        transition: .5s;
+    }
+    .login-phone-pass .login-phone-pass-ma1:hover{
+        background: #ff6b68;
+    }
+    .login-phone-pass .login-phone-pass-ma{
+        align-self: flex-start;
+        width: 30%;
+        height:35px;
+        border-radius: 5px;
+        border:0;
+        outline: 0;
+        margin-left: 17.5%;
+        text-indent: 0.5em;
+        margin-bottom: 4%;
+        font-size: 15px;
+        letter-spacing: 1px;
+
+    }
+    .login-phone-pass button{
+        width: 30%;
+        height: 35px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        background:#71c0ff;
+        align-self: flex-start;
+        margin-left: 17.5%;
+        color: #FFFFFF;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .login-phone-pass button:hover{
+        background: #ff6b68;
+    }
+    /*辅助样式*/
+    .wrap{
+        width: 100%;
+        height:960px;
+        background: rgba(0,0,255,.5);
+        position: absolute;
+        left: 0;
+        top:0;
+    }
+    .active{
+        display: block;
+    }
+    .hide{
+        display:none;
+    }
+
+}
+
+/*移动端的显示*/
+@media screen and (min-width: 320px) and (max-width: 640px){
+    body{
+        background:rgba(0,0,255,.1) ;
+    }
+    .login{
+        width: 90%;
+        height:300px;
+        margin:150px auto 0;
+        background: rgba(255,255,255,0.5);
+        border-radius: 10px;
+    }
+    .login-phone{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    .login-phone div{
+        width: 50%;
+        height:40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 18px;
+        color: #FFFFFF;
+    }
+    .login-phone div:hover{
+        background:rgba(0, 0, 255, 0.6) ;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .login-phone .login-phone1{
+        border-top-left-radius: 10px;
+        background: rgba(0, 0,255, 0.6);
+    }
+    .login-phone .login-phone2{
+        border-top-right-radius: 10px;
+    }
+    /*密码登录*/
+    .login-pass{
+        margin-top:8%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    .login-pass div{
+        width: 80%;
+        height:40px;
+        margin-bottom: 5%;
+        border-radius: 8px;
+        position: relative;
+        background: #FFFFFF;
+    }
+    .login-pass div input{
+        border:none;
+        outline: none;
+        width: 83%;
+        height:95%;
+        position: absolute;
+        right: 1%;
+        top:2%;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 1px;
+        text-indent: .5em;
+    }
+    .login-pass button{
+        border:none;
+        outline: none;
+        width: 80%;
+        height:38px;
+        background: #71c0ff;
+        font-size: 18px;
+        color: #FFFFFF;
+        border-radius: 3px;
+        transition: .5s;
+    }
+    .login-pass button:hover{
+        background: #ff6b68;
+        cursor: pointer;
+    }
+    .login-pass .login-fot{
+        margin-top:4%;
+        background:rgba(0,0,0,0);
+    }
+    .login-pass .login-fot .login-forget{
+        float: right;
+    }
+    .login-pass .login-fot .sign{
+        float: left;
+    }
+    /*.login-pass .login-forget{
+        position: absolute;
+        right:13.5%;
+        top:54%;
+    }
+    .login-pass .sign{
+        position: absolute;
+        left:13.5%;
+        top:54%;
+    }*/
+    .login-pass .login-forget a{
+        text-decoration-line: none;
+    }
+    .login-pass .sign a{
+        text-decoration-line: none;
+    }
+    .login-pass .login-num span{
+        font-family: "gao";
+        font-size: 22px;
+        position: absolute;
+        top:8px;
+        left: 15px;
+        color: #00BFF0;
+    }
+    .login-pass .login-passWd span{
+        font-family: "gao";
+        font-size: 20px;
+        position: absolute;
+        top:8px;
+        left: 15px;
+        color: #00BFF0;
+    }
+    /*快速登录*/
+    .login-phone-pass{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin-top: 8%;
+    }
+    .login-phone-pass .login-phone-pass-p{
+        width: 65%;
+        height:35px;
+        margin-bottom: 4%;
+        border-radius: 5px;
+        position: relative;
+        background: #FFFFFF;
+
+    }
+    .login-phone-pass .login-phone-pass-p span{
+        position: absolute;
+        top:5px;
+        left: 3%;
+        font-family: "gao1";
+        font-size: 25px;
+        color:deepskyblue;
+
+    }
+    .login-phone-pass .login-phone-pass-p input{
+        width: 82%;
+        height:99%;
+        outline: 0;
+        border:0;
+        position: absolute;
+        top:0;
+        right: 4.5%;
+        text-indent: 0.5em;
+        font-size: 18px;
+        line-height: 35px;
+        letter-spacing: 1px;
+    }
+    .login-phone-pass .login-phone-pass-ma1{
+        width: 30%;
+        height:35px;
+        background: #71c0ff;
+        border:0;
+        outline: 0;
+        cursor: pointer;
+        align-self:flex-start;
+        margin-left: 17.5%;
+        color: #FFFFFF;
+        font-size: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 4%;
+        transition: .5s;
+    }
+    .login-phone-pass .login-phone-pass-ma1:hover{
+        background: #ff6b68;
+    }
+    .login-phone-pass .login-phone-pass-ma{
+        align-self: flex-start;
+        width: 65%;
+        height:35px;
+        border-radius: 5px;
+        border:0;
+        outline: 0;
+        margin-left: 17.5%;
+        text-indent: 0.5em;
+        margin-bottom: 4%;
+        font-size: 15px;
+        letter-spacing: 1px;
+
+    }
+    .login-phone-pass button{
+        width: 30%;
+        height: 35px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        background:#71c0ff;
+        align-self: flex-start;
+        margin-left: 17.5%;
+        color: #FFFFFF;
+        cursor: pointer;
+        transition: .5s;
+    }
+    .login-phone-pass button:hover{
+        background: #ff6b68;
+    }
+    .active{
+        display: block;
+    }
+    .hide{
+        display:none;
+    }
+
+}
